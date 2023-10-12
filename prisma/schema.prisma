@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String
+  email     String   @unique
+  password  String   
+  injuryReports InjuryReport[] // A one-to-many relationship with the InjuryReport table
+}
+
+model InjuryReport {
+  id              Int          @id @default(autoincrement())
+  reporter_id     Int
+  report_date_time DateTime
+  injury_date_time DateTime
+  reporter         User         @relation(fields: [reporter_id], references: [id])
+  injuryLocations  InjuryLocation[] // A one-to-many relationship with the InjuryLocation table
+}
+
+model InjuryLocation {
+  id              Int      @id @default(autoincrement())
+  report_id       Int
+  label           Int
+  area_description String
+  report          InjuryReport @relation(fields: [report_id], references: [id])
+  injuryDetails   InjuryDetail[] // A one-to-many relationship with the InjuryDetail table
+}
+
+model InjuryDetail {
+  id           Int      @id @default(autoincrement())
+  location_id  Int
+  description  String
+  location     InjuryLocation @relation(fields: [location_id], references: [id])
+}

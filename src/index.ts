@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { ApolloServer } from '@apollo/server';
+import createApolloGraphqlServer from './graphql';
 import { expressMiddleware } from '@apollo/server/express4';
 
 async function init() {
@@ -8,27 +8,11 @@ async function init() {
 
   app.use(express.json());
 
-  //crate GraphQL server
-  const gqlServer = new ApolloServer({
-    typeDefs: `
-        type Query {
-            hello: String
-        }
-    `,
-    resolvers: {
-      Query: {
-        hello: () => `im gql server`,
-      },
-    },
-  });
-
-  //start gqlServer
-  await gqlServer.start();
-
   app.get('/', (req: Request, res: Response) => {
     res.send('hi new ');
   });
-  app.use('/graphql', expressMiddleware(gqlServer));
+  // app.use('/graphql', expressMiddleware(gqlServer));
+  app.use('/graphql', expressMiddleware(await createApolloGraphqlServer()));
 
   app.listen(PORT, () => {
     console.log('Server is running on http://localhost:8080');
