@@ -1,0 +1,174 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.layout {
+  min-height: 100vh;
+}
+
+.title {
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  align-items: center;
+  color: white;
+  box-shadow: 0px 0px 35px gray;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bodyContainer {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.bodyContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.clickableArea {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #007bff;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: large;
+  cursor: pointer;
+
+  .deleteButton {
+    display: none;
+  }
+
+  &:hover .deleteButton {
+    display: block;
+  }
+  &:hover .areaId {
+    display: none;
+  }
+}
+
+.loader {
+  width: 100vw;
+  height: 100vh;
+}
+
+.primary-btn:hover {
+  box-shadow: 0px 0px 35px darkgray;
+}
+
+.parent-div {
+  padding: 8px;
+  background-color: white;
+  border: 1px solid darkgray;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.report-heading {
+  margin: 15px;
+}
+
+.logout-btn {
+  width: 100%;
+  color: white !important;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.footer {
+  background: #1d95fb;
+  padding: 15px 25px;
+}
+
+.login-right-div {
+  height: 100vh;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.login-left-div {
+  height: 100vh;
+  background-image: url(../public/bg.jpg);
+  filter: drop-shadow(15px 0px 27px gray);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
+}
+
+.bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #f4f9f9 50%, #aaaaaa 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: 0.5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
+}
