@@ -11,15 +11,6 @@
   </p>
 </div>
 
-## Screenshots
-
-|                                             |                                                   |
-| :-----------------------------------------: | :-----------------------------------------------: |
-|       ![reports](/public/reports.png)       |       ![sm-reports](/public/sm-reports.png)       |
-| ![create-report](/public/create-report.png) | ![sm-create-report](/public/sm-create-report.png) |
-|     ![bar-chart](/public/bar-chart.png)     |         ![sm-chart](/public/sm-chart.png)         |
-|   ![edit-report](/public/edit-report.png)   |       ![sm-reports](/public/sm-reports.png)       |
-
 ## Features
 
 - [x] Report: Users should be able to create, view, update, and delete an injury report.
