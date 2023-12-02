@@ -1,6 +1,6 @@
 <br />
 <div align="center">
-  <a href="https://github.com/b9aurav/injurio">
+  <a href="https://github.com/">
     <img src="./public/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -10,6 +10,15 @@
     <br />
   </p>
 </div>
+
+## Screenshots
+
+|                                             |                                                   |
+| :-----------------------------------------: | :-----------------------------------------------: |
+|       ![reports](/public/reports.png)       |       ![sm-reports](/public/sm-reports.png)       |
+| ![create-report](/public/create-report.png) | ![sm-create-report](/public/sm-create-report.png) |
+|     ![bar-chart](/public/bar-chart.png)     |         ![sm-chart](/public/sm-chart.png)         |
+|   ![edit-report](/public/edit-report.png)   |       ![sm-reports](/public/sm-reports.png)       |
 
 ## Features
 
@@ -36,7 +45,7 @@
 ## Tech Stack
 
 - Front-end: Next.js with Grommet or Ant as the design library.
-- Back-end: PostgreSQL database with Prisma as the ORM for database connectivity.
+- Back-end: PostgreSQL database with Prisma as the ORM for database connectivity and GraphQL.
 - Authentication: Auth0 for user authentication, with options for Google login and email login.
 - Analytics: Chart.js
 - Progressive Web App (PWA)
@@ -46,28 +55,32 @@
 ```
 .
 └── injurio
-    ├── components                    // Includes custom components.
-    │   ├── bodyMap.tsx               // Component to encircle body parts for enjuries.
-    │   ├── createReportModal.tsx     // Modal component to create report.
-    │   └── editReportModal.tsx       // Modal component to edit report.
-    ├── lib                           // Third-party library modules.
-    │   └── prisma.ts                 // To export single prisma client among all modules.
-    ├── pages                         // Includes Page modules and API routes.
-    │   ├── api                       // API Routes
+    ├── components                 // Includes custom components.
+    │   ├── bodyMap.tsx              // Component to encircle body parts for enjuries.
+    │   ├── createReportModal.tsx    // Modal component to create report.
+    │   └── editReportModal.tsx      // Modal component to edit report.
+    ├── graphql                    // GraphQL modules
+    │   ├── context.ts               // Defined GraphQL context to use prisma.
+    │   ├── resolvers.ts             // All queries and mutations for GraphQL.
+    │   ├── queries.ts               // All queries and mutations usages are defined and exported.
+    │   ├── schema.ts                // Database Schema file for GraphQL (Similar to schema.prisma)
+    ├── lib                        // Third-party library modules.
+    │   ├── apollo.ts                // To export Apollo client to use GraphQL client side.
+    │   └── prisma.ts                // To export single prisma client among all modules.
+    ├── pages                      // Includes Page modules and API routes.
+    │   ├── api                      // API Routes
     │   │   ├── [auth0].ts            // Auth0 user authentication module.
-    │   │   ├── injury                // Includes required API routes for injury (Create, Get, Delete)
-    │   │   ├── report                // Includes required API routes for report (Create, Get, Update, Delete)
-    │   │   └── user                  // Includes required API routes for user (Create, Get)
-    │   ├── analytics.tsx             // Analytics Page
-    │   ├── home.tsx                  // Home Page
-    │   ├── index.tsx                 // Index Page
-    │   ├── login.tsx                 // Login Page
-    │   └── report.tsx                // Report Page
-    ├── prisma                        // Prisma Files
+    │   │   └── graphql.ts            // Module to set apollo client server with GraphQL API.
+    │   ├── analytics.tsx            // Analytics Page
+    │   ├── home.tsx                 // Home Page
+    │   ├── index.tsx                // Index Page
+    │   ├── login.tsx                // Login Page
+    │   └── report.tsx               // Report Page
+    ├── prisma                      // Prisma Files
     │   └── schema.prisma             // Prisma Schema
-    ├── public                        // Includes public files (logo, favicon, manifest, etc...)
-    └── styles                       // Includes CSS files
-        └── globals.css              // Single css file for all modules
+    ├── public                      // Includes public files (logo, favicon, manifest, etc...)
+    └── styles                      // Includes CSS files
+        └── globals.css               // Single css file for all modules
 ```
 
 ## Getting Started

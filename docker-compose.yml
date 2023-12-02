@@ -9,9 +9,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_DB: postgres1
-      POSTGRES_PASSWORD: postgres1
+      POSTGRES_USER: { { postgres_user } }
+      POSTGRES_DB: { { postgres_db } }
+      POSTGRES_PASSWORD: { { postgres_passsword } }
 
 volumes:
   postgres_data:
