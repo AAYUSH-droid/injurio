@@ -27,6 +27,7 @@ import { CREATE_USER, GET_USER } from '@/graphql/queries';
 
 const { Header, Content, Footer } = Layout;
 
+//check
 const Home: React.FC = () => {
   const user = useUser();
   const [SelectedMenu, setSelectedMenu] = useState('Reports');
